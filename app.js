@@ -1,4 +1,4 @@
-displayNumber = document.querySelector('.displayNumber');
+let displayNumber = document.querySelector('.displayNumber');
 
 function add(numOne, numTwo) { return numOne + numTwo; }
 function subtract(numOne, numTwo) { return numOne - numTwo; }
@@ -17,11 +17,21 @@ function operate(numOne, numTwo, operator) {
 
 let buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
+  // 
   button.addEventListener('click', (e) => {
-    id = e.target.getAttribute('class');
-    if (id === 'button number') { 
+    let id = e.target.getAttribute('id');
+    let className = e.target.getAttribute('class');
+    // check if there is already a decimal point
+    if ((e.target.getAttribute('id') === '.') &&
+        displayNumber.textContent.includes('.')) {
+          return
+    }
+    // check if button pressed is a number
+    if (className === 'button number') { 
       displayNumber.textContent += e.target.getAttribute('id')
     }
+    // check if button pressed is an operator
+    if (id === multiply) { return }
   })
 });
 

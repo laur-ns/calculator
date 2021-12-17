@@ -15,7 +15,7 @@ body {
 
 .main-container {
   background-color: #14171e;
-  height: 80vh;
+  /* height: 80vh; */
   width: 43vh;
   border-radius: 22px;
   box-shadow: 12px 14px 19px rgba(4, 44, 20, 0.253);
@@ -49,11 +49,18 @@ body {
   justify-content: space-between;
   font-size: 5vh;
   font-weight: 700;
-  padding: 5px 16px 5px 16px;
+  padding: 5px 15px 5px 15px;
+}
+
+.displayNumber {
+  width: 30vh;
+  overflow-wrap: break-word;
+  text-align: right;
 }
 
 .operator {
   font-weight: 500;
+  margin-right: 10px;
   font-size: 4.7vh;
   color: rgb(179, 190, 199);
 }
@@ -93,8 +100,12 @@ body {
   font-weight: 700;
 }
 
-.button.power {
+#power {
   padding-top: 4px;
+}
+
+#delete {
+  padding-bottom: 9px;
 }
 
 .row-dark {

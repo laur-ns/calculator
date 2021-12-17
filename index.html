@@ -4,7 +4,7 @@
     <title>🖩 Calculator</title>
     <meta charset='utf-8'>
     <link rel='stylesheet' href='./style.css'>
-    <script src='app.js'></script>
+    <script src='./app.js' defer></script>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,32 +19,33 @@
         <div class='history'>15+27-12+15*5</div>
         <div class='activeWindow'>
           <div class='operator'>=</div>
-          <div class='currentNumber'>105</div>
+          <div class='displayNumber'>105</div>
         </div>
       </div>
       <div class='pad'>
         <div class='row-dark'>
-          <button class='button dark'>AC</button>
-          <button class='button dark'>⌫</button>
-          <button class='button dark'>%</button>
+          <button class='button dark' id='clear'>AC</button>
+          <button class='button dark' id='power'>^</button>
+          <button class='button dark' id='delete'>⌫</button>
+
         </div>
-        <button class='button green dark'>÷</button>
-        <button class='button'>7</button>
-        <button class='button'>8</button>
-        <button class='button'>9</button>
-        <button class='button green dark'>×</button>
-        <button class='button'>4</button>
-        <button class='button'>5</button>
-        <button class='button'>6</button>
-        <button class='button green dark'>−</button>
-        <button class='button'>1</button>
-        <button class='button'>2</button>
-        <button class='button'>3</button>
-        <button class='button green dark'>+</button>
-        <button class='button dot'>.</button>
-        <button class='button'>0</button>
-        <button class='button power'>^</button>
-        <button class='button equals'>=</button>
+        <button class='button green dark' id='divide'>÷</button>
+        <button class='button number' id='7'>7</button>
+        <button class='button number' id='8'>8</button>
+        <button class='button number' id='9'>9</button>
+        <button class='button green dark' id='multiply'>×</button>
+        <button class='button number' id='4'>4</button>
+        <button class='button number' id='5'>5</button>
+        <button class='button number' id='6'>6</button>
+        <button class='button green dark' id='subtract'>−</button>
+        <button class='button number' id='1'>1</button>
+        <button class='button number' id='2'>2</button>
+        <button class='button number' id='3'>3</button>
+        <button class='button green dark' id='plus'>+</button>
+        <button class='button number' id='.'>.</button>
+        <button class='button number' id='0'>0</button>
+        <button class='button dark' id='modulo'>%</button>
+        <button class='button' id='equals'>=</button>
       </div>
     </div>    
   </body>

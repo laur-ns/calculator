@@ -1,7 +1,29 @@
 html {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: #1fcf72;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  background-color: #14171e;
+  height: 80vh;
+  width: 45vh;
+  border-radius: 22px;
+  box-shadow: 12px 14px 19px rgba(4, 44, 20, 0.253);
+}
+
+.pad {
+  background-color: #1a1d24;
+}
+
+.operators {
+  color: #19be66;
 }

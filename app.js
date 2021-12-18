@@ -1,18 +1,20 @@
 let numberDisplay = document.querySelector('.numberDisplay');
 let historyDisplay = document.querySelector('.history');
 let operatorDisplay = document.querySelector('.operator');
+let displayToggle = false; // determines whether to clear display on input
 
 let firstOperand = '';
 let secondOperand = '';
 let operator = '';
 
 const operations = {
-add: function(numOne, numTwo) { return numOne + numTwo; },
-subtract: function(numOne, numTwo) { return numOne - numTwo; },
-multiply: function(numOne, numTwo) { return numOne * numTwo; },
-divide: function(numOne, numTwo) { return numOne / numTwo; },
-modulo: function(numOne, numTwo) { return numOne % numTwo; },
-power: function(numOne, numTwo) { return numOne ** numTwo; },
+add: (numOne, numTwo) => { return numOne + numTwo; },
+subtract: (numOne, numTwo) => { return numOne - numTwo; },
+multiply: (numOne, numTwo) => { return numOne * numTwo; },
+divide: (numOne, numTwo) => { return numOne / numTwo; },
+modulo: (numOne, numTwo) => { return numOne % numTwo; },
+power: (numOne, numTwo) => { return numOne ** numTwo; },
+// equals: (
 };
 
 // -- functions -- //
@@ -21,13 +23,9 @@ function operate(numOne, numTwo, operator) {
   numTwo = parseInt(numTwo);
   firstOperand = operations[operator](numOne, numTwo);
   numberDisplay.textContent = firstOperand;
+  displayToggle = true;
   secondOperand = '';
-  // if (operator === 'add') { add(numOne, numTwo); }
-  // if (operator === 'subtract') { subtract(numOne, numTwo); }
-  // if (operator === 'multiply') { multiply(numOne, numTwo); }
-  // if (operator === 'divide') { divide(numOne, numTwo); }
-  // if (operator === 'modulo') { modulo(numOne, numTwo); }
-  // if (operator === 'power') { power(numOne, numTwo); }
+  console.log(operator);
 }
 let buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
@@ -41,6 +39,10 @@ buttons.forEach(button => {
     }
     // check if button pressed is a number
     if (classes === 'button number') { 
+      if (displayToggle) {
+        numberDisplay.textContent = '';
+        displayToggle = false;
+      }
       numberDisplay.textContent += id;
     }
     // check if button pressed is an operator

@@ -40,6 +40,7 @@ body {
 .history {
   text-align: right;
   padding-right: 16px;
+  height: 2.35vh;
   font-size: 2.35vh;
   color: rgb(179, 190, 199);
 }
@@ -103,6 +104,10 @@ body {
 
 .button.dot {
   font-weight: 700;
+}
+
+sup {
+  pointer-events: none;
 }
 
 #power {

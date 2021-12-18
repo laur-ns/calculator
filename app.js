@@ -65,6 +65,8 @@ buttons.forEach(button => {
     // clear or delete display
     if (id === 'clear') {
       changeDisplay('clearAll', 'equals');
+      firstOperand = '';
+      secondOperand = '';
     } else if (id === 'delete') {
       numberDisplay.textContent = (numberDisplay.textContent).slice(0, -1)
     }

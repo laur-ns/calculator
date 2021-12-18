@@ -52,13 +52,14 @@ body {
   padding: 5px 15px 5px 15px;
 }
 
-.displayNumber {
+.numberDisplay {
   width: 30vh;
   overflow-wrap: break-word;
   text-align: right;
 }
 
 .operator {
+  height: 52px;
   font-weight: 500;
   margin-right: 10px;
   font-size: 4.7vh;

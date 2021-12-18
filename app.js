@@ -62,6 +62,13 @@ buttons.forEach(button => {
       return;
     }
 
+    // clear or delete display
+    if (id === 'clear') {
+      changeDisplay('clearAll', 'equals');
+    } else if (id === 'delete') {
+      numberDisplay.textContent = (numberDisplay.textContent).slice(0, -1)
+    }
+
     // check if button pressed is a number
     if (classes === 'button number') { 
       if (operator === 'equals') {

@@ -74,6 +74,7 @@ buttons.forEach(button => {
       if (operator === 'equals') {
         firstOperand = '';
         changeDisplay('clearAll', operator);
+        operator = '';
       }
       if (clearDisplayOnInput) {
         numberDisplay.textContent = '';

@@ -6,15 +6,21 @@ let firstOperand = '';
 let secondOperand = '';
 let operator = '';
 
-// -- functions
-function add(numOne, numTwo) { return numOne + numTwo; }
-function subtract(numOne, numTwo) { return numOne - numTwo; }
-function multiply(numOne, numTwo) { return numOne * numTwo; }
-function divide(numOne, numTwo) { return numOne / numTwo; }
-function modulo(numOne, numTwo) { return numOne % numTwo; }
-function power(numOne, numTwo) { return numOne ** numTwo; }
+const operations = {
+add: function(numOne, numTwo) { return numOne + numTwo; },
+subtract: function(numOne, numTwo) { return numOne - numTwo; },
+multiply: function(numOne, numTwo) { return numOne * numTwo; },
+divide: function(numOne, numTwo) { return numOne / numTwo; },
+modulo: function(numOne, numTwo) { return numOne % numTwo; },
+power: function(numOne, numTwo) { return numOne ** numTwo; },
+};
+
+// -- functions -- //
 function operate(numOne, numTwo, operator) {
-  console.log(numOne, numTwo, operator)
+  numOne = parseInt(numOne);
+  numTwo = parseInt(numTwo);
+  firstOperand = operations[operator](numOne, numTwo);
+  numberDisplay.textContent = firstOperand;
   secondOperand = '';
   // if (operator === 'add') { add(numOne, numTwo); }
   // if (operator === 'subtract') { subtract(numOne, numTwo); }
@@ -39,13 +45,14 @@ buttons.forEach(button => {
     }
     // check if button pressed is an operator
     if (classes.includes('operator')) {
-      if (firstOperand == '') {
+      if (firstOperand === '') {
         firstOperand = numberDisplay.textContent;
         operator = id;
         changeDisplay('main', id);
         return;
       }
       secondOperand = numberDisplay.textContent;
+      if (secondOperand === '') { return }; 
       changeDisplay('main', id);
       operate(firstOperand, secondOperand, operator);
       operator = id;

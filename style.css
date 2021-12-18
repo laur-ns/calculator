@@ -50,6 +50,7 @@ body {
   font-size: 5vh;
   font-weight: 700;
   padding: 5px 15px 5px 15px;
+  align-items: flex-end;
 }
 
 .numberDisplay {
@@ -58,8 +59,11 @@ body {
   text-align: right;
 }
 
-.operator {
-  height: 52px;
+.activeWindow .operator {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  height: 66px;
   font-weight: 500;
   margin-right: 10px;
   font-size: 4.7vh;

@@ -23,9 +23,9 @@ function operate(numOne, numTwo, operator) {
   numTwo = parseInt(numTwo);
   firstOperand = operations[operator](numOne, numTwo);
   numberDisplay.textContent = firstOperand;
+  changeDisplay('showEquation', operator);
   displayToggle = true;
   secondOperand = '';
-  console.log(operator);
 }
 let buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
@@ -42,20 +42,26 @@ buttons.forEach(button => {
       if (displayToggle) {
         numberDisplay.textContent = '';
         displayToggle = false;
+        secondOperand = '';
       }
       numberDisplay.textContent += id;
     }
     // check if button pressed is an operator
     if (classes.includes('operator')) {
+      if (displayToggle) {
+        operator = id;
+        changeDisplay('clearMain', id);
+        return;
+      }
       if (firstOperand === '') {
         firstOperand = numberDisplay.textContent;
         operator = id;
-        changeDisplay('main', id);
+        changeDisplay('clearMain', id);
         return;
       }
       secondOperand = numberDisplay.textContent;
-      if (secondOperand === '') { return }; 
-      changeDisplay('main', id);
+      if (secondOperand === '') { return };  
+      changeDisplay('clearMain', id);
       operate(firstOperand, secondOperand, operator);
       operator = id;
     }
@@ -64,14 +70,17 @@ buttons.forEach(button => {
 
 function changeDisplay(displayType, operator) {
   let operatorSymbol =  document.querySelector(`#${operator}`).textContent;
-  if (displayType === 'main') {
+  if (displayType === 'clearMain') {
     operatorDisplay.textContent = operatorSymbol;
-    historyDisplay = numberDisplay.textContent;
-    numberDisplay.textContent = ' ';
+    historyDisplay.textContent = firstOperand;
+    numberDisplay.textContent = '';
   }
-  if (displayType === 'all') {
+  if (displayType === 'clearAll') {
     historyDisplay.textContent = ''
     numberDisplay.textContent = '';
     operatorDisplay.textContent = '';
+  }
+  if (displayType === 'showEquation') {
+    historyDisplay.textContent = `${firstOperand} ${operatorSymbol} ${secondOperand}`;
   }
 }

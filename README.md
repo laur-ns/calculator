@@ -1,6 +1,6 @@
-# calculator
+# Calculator
 
-Calculator for the odin project.
+Simple calculator app
 
-[Live Demo](https://laur-ns.github.io/calculator/)
+## [Live Demo](https://laur-ns.github.io/calculator/)
 
